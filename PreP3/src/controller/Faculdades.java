@@ -8,16 +8,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 public class Faculdades {
+	 
 	
-	public final static String DIR = "C:\\TEMP\\arquivo";
-	public final static String FILE_NAME = "hol.json";
 	
-	public static void criaDirArq() {
 
-		File diretorio = new File(DIR);
+	public final static String FILE_NAME = "hol.json";
+
+	public static void criaDirArq(String dir) {
+		
+		
+		File diretorio = new File(dir);
 
 		if (!diretorio.exists()) {;
 			diretorio.mkdir();
@@ -29,7 +31,7 @@ public class Faculdades {
 		File arquivo = new File(diretorio, FILE_NAME);
 		
 		if (!arquivo.exists()) {
-			System.out.println("Arquivo Criado");
+			System.out.println("Arquivo Criado" + "\n");
 			try {
 				arquivo.createNewFile();
 			} catch (IOException e) {
@@ -49,11 +51,13 @@ public class Faculdades {
 			System.out.println("Arquivo já existe" + "\n");
 		}
 	}
-	
-	public static void lerArquivo() {
+
+	public static void lerArquivo(String dir) {
+		
+				  
 		try {
 			StringBuffer stringBuffer = new StringBuffer();
-			File newArquivo = new File(DIR, FILE_NAME);
+			File newArquivo = new File(dir, FILE_NAME);
 			FileInputStream fileInputStream = new FileInputStream(newArquivo);
 			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -86,6 +90,6 @@ public class Faculdades {
 
 		}
 	}
+
+	
 }
-
-
